@@ -5,13 +5,40 @@
         document.calc.display.value = "";
       } else {
         document.calc.display.value += btn.value;
-        document.calc.add_btn.value = "*";
-        document.calc.div_btn.value = "/";
+        input_check();
+        input_check2();
       }
     }
     
     
-  // javascript動作確認用
-  function test1(){
-	  console.log("test1"); //test1と表示
-  }
+// 入力チェックの関数(一番先頭の値が0か演算子だったら、初期化)
+function input_check(){
+  if(document.calc.display.value.slice( 0, 1 ) == "0"){
+      document.calc.display.value = "";
+    }else if(document.calc.display.value.slice( 0, 1 ) == "+"){
+      document.calc.display.value = "";
+    }else if(document.calc.display.value.slice( 0, 1 ) == "-"){
+      document.calc.display.value = "";
+    }else if(document.calc.display.value.slice( 0, 1 ) == "*"){
+      document.calc.display.value = "";
+    }else if(document.calc.display.value.slice( 0, 1 ) == "/"){
+      document.calc.display.value = "";
+    }
+}
+
+// 入力チェックの関数(一番末尾が演算子だったら、演算子を上書き)
+function input_check2(){
+  if(document.calc.display.value.slice( -1 ) == "+"){
+      document.calc.display.value.slice( -1 ).val("");
+      document.calc.display.value.slice( -1 ).val("+");
+    }else if(document.calc.display.value.slice( -1 ) == "-"){
+      document.calc.display.value.slice( -1 ).val("");
+      document.calc.display.value.slice( -1 ).val("-");
+    }else if(document.calc.display.value.slice( -1 ) == "*"){
+      document.calc.display.value.slice( -1 ).val("");
+      document.calc.display.value.slice( -1 ).val("*");
+    }else if(document.calc.display.value.slice( -1 ) == "/"){
+      document.calc.display.value.slice( -1 ).val("");
+      document.calc.display.value.slice( -1 ).val("/");
+    }
+}
