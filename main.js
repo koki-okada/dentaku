@@ -29,6 +29,6 @@ function input_check(){
     
       // 末尾２桁が演算子の場合、末尾の演算子だけを削除
       if(operator.includes(document.calc.display.value.slice( -2 ))){
-            document.calc.display.value = document.getElementById("display").value.slice(0, -1);
+          document.calc.display.value = document.getElementById("display").value.slice(0, -1);
         }
     }
